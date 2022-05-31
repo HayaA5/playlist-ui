@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import ReactDOM from 'react-dom'
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Header from './Components/Header';
+import Login from './Components/Login';
+import Search from './Components/Search';
+import List from './Components/List';
+import { UserContext } from './Context/UserContext';
 
-function App() {
+
+export default function App() {
+  const [user, setUser] = useState({ name: "shira" })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserContext.Provider value={{ user, setUser }} >
+        <Header />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/Search" element={<Search />} />
+          <Route path="/List" element={<List />} />
+        </Routes >
+      </UserContext.Provider>
     </div>
   );
 }
 
-export default App;
+
+

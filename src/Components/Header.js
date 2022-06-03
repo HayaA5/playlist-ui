@@ -1,24 +1,23 @@
-import { Link, useLocation, Route, Routes } from 'react-router-dom';
-import Login from './Login';
-import Search from './Search';
-import List from './List';
+import { Link, useParams } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { UserContext } from '../Context/UserContext';
 
 const Header = () => {
     const { user, setUser } = useContext(UserContext)
+
     return (
-        <div>
-
-
+        <div className="header">
             <header>
-                <h1>Hey {user.name} here is your playlist</h1>
                 <nav>
-                    <button><Link to="/"><h1>Login</h1> </Link></button>
-                    <button><Link to="/Search"><h1>Search</h1></Link></button>
-                    <button><Link to="List"><h1>List</h1> </Link></button>
+                    <button className='button'><Link to="/"><h1>Login</h1> </Link></button>
+                    <button className='button'><Link to="/Search"><h1>Search</h1></Link></button>
+                    <button className='button'><Link to="Playlist" ><h1>Playlist</h1> </Link></button>
                 </nav>
             </header>
         </div>);
 }
 export default Header;
+
+
+// <h1>Hello {user.name}</h1>
+// <h2>Let's play music 🎧</h2>

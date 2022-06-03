@@ -1,7 +1,6 @@
 const Search = () => {
     return (
-        <div>
-            Search!!
+        <div className="Search">
         </div>);
 }
 export default Search;

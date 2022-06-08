@@ -6,11 +6,12 @@ import Login from './Components/Login';
 import Search from './Components/Search';
 import Playlist from './Components/Playlist';
 import { UserContext } from './Context/UserContext';
+import { Navigate } from 'react-router-dom';
 
 
 export default function App() {
   const [user, setUser] = useState()
-
+  //debugger;
   return (
     <div>
       <UserContext.Provider value={{ user, setUser }} >
@@ -18,12 +19,21 @@ export default function App() {
           <Header />
         </div>
         <Routes>
-          <Route path="/" element={<Login />} />
-          {user && (
+
+
+
+
+          {user ? (
             <>
+              <Route path="/Login" element={<Navigate to="/Search" />} />
               <Route path="/Search" element={<Search />} />
               <Route path="/Playlist" element={<Playlist />} />
-            </>)
+            </>) : (
+            <>
+              <Route path="Login" element={<Login />} />
+              <Route path="/*" element={<Navigate to="/Login" />} />
+            </>
+          )
           }
         </Routes >
       </UserContext.Provider>

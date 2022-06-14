@@ -7,6 +7,7 @@ import Search from './Components/Search';
 import Playlist from './Components/Playlist';
 import { UserContext } from './Context/UserContext';
 import { Navigate } from 'react-router-dom';
+import Song from './Components/Song';
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/Login" element={<Navigate to="/Search" />} />
               <Route path="/Search" element={<Search />} />
               <Route path="/Playlist" element={<Playlist />} />
+              <Route path="/Playlist/:id" element={<Song />}/>
             </>) : (
             <>
               <Route path="Login" element={<Login />} />

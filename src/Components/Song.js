@@ -1,25 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import Search from './Search'
+import { SongContext } from '../Context/SongContext';
+
+
 
 
 function Song(props) {
-    debugger;
-    const {video_id, title}=props;
-   // let video_id=useParams();
+
+    const { video_id, title } = props;
+    // const [song, setSong] = useContext(SongContext)
+    // const addToPlaylist = (e) => {
+    //     debugger;
+    //     setSong(
+    //         [...song, { id: { video_id } }])
+    //     debugger;
+    // }
 
 
-    // useEffect(() => {
-    //     fetch('https://fakestoreapi.com/products/'+video_id)
-    //       .then(res =>  res.json())
-    //       .then(data => {setList(data)})
-    //   }, [])
 
     return (
         <div className="song">
-            {/* <source src="/Videos/video1.mp4" type="video/mp4"/> */}
-        <div>video id:{video_id}</div>
-        <div>Title: {title}</div>
+            <div>Title: {title}</div>
+
+            <div className="video-responsive">
+                <iframe
+                    width="853"
+                    height="480"
+                    src={`https://www.youtube.com/embed/${video_id}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Embedded youtube"
+                />
+            </div>
+            <button className='btn-playlist' onClick={(e) => { }} >Add to playlist</button>
+            {/* addToPlaylist(e) */}
+
+
         </div>
     )
 }

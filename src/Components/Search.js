@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import Song from './Song'
 function Search() {
-   // debugger;
+    // debugger;
     let userSearch;
     //const value = 'avraham fried';
     const { user, setUser } = useContext(UserContext);
@@ -39,22 +39,23 @@ function Search() {
         debugger;
         // fetch(`https://youtube-search6.p.rapidapi.com/search/?query=${value}`, options)
         fetch(`https://youtube-search6.p.rapidapi.com/search/?query=${value}`, options)
-        // fetch('https://youtube-search6.p.rapidapi.com/search/?query=avraham%20fried', options) //&number=20&country=us&lang=en
+            // fetch('https://youtube-search6.p.rapidapi.com/search/?query=avraham%20fried', options) //&number=20&country=us&lang=en
             .then(response => response.json())
-           // .then(response => console.log(response))
-            .then(response => { console.log(response.videos);  setList(response.videos); })
+            // .then(response => console.log(response))
+            .then(response => { console.log(response.videos); setList(response.videos); })
             .catch(err => console.error(err));
+        debugger;
     }
 
 
-// function getSongs(value) {
-//     fetch('https://youtube-search6.p.rapidapi.com/search/?query=avraham%20fried&number=20&country=us&lang=en', options)
-//         .then(response => response.json())
-//         .then(response => console.log(response))
-//         .catch(err => console.error(err));
-// }
+    // function getSongs(value) {
+    //     fetch('https://youtube-search6.p.rapidapi.com/search/?query=avraham%20fried&number=20&country=us&lang=en', options)
+    //         .then(response => response.json())
+    //         .then(response => console.log(response))
+    //         .catch(err => console.error(err));
+    // }
 
-  
+
     const options = {
         method: 'GET',
         headers: {
@@ -62,13 +63,13 @@ function Search() {
             'X-RapidAPI-Host': 'youtube-search6.p.rapidapi.com'
         }
     };
-    
-    
 
 
 
 
-    if(!list) return 'Loading...'
+
+
+    if (!list) return 'Loading...'
     // if (!list) return 'Loading...'
 
     return <div className="Search">
@@ -78,27 +79,27 @@ function Search() {
 
         <input type="search" placeholder="" onChange={(e) => { userSearch = e.target.value; }} />
         <button className='button' onClick={() => getSongs(userSearch)}>🎧</button>
-        
+
 
         {/* <Link to="Search"><h1>Search</h1></Link> */}
         {/* <button className='button'><Link to="Playlist" ><h1>Playlist</h1> </Link></button> */}
 
-       
+
         {/* {
             list.length>0 ?
                 list.map(v => <Link to ={'/Playlist/'+v.video_id} ><Song myId={v.video_id} /> </Link>) :
                 <h4>Not found</h4>
         } */}
-   {/* {
+        {/* {
             list.length>0 ?
                 list.map(v => <div><Link to ={'/Playlist/'+v.video_id} >{v.title} </Link></div>) :
                 <h4>Not found</h4>
         } */}
 
-{
-            list.length>0 ?
+        {
+            list.length > 0 ?
                 list.map(v => <Song key={v.video_id}
-                    {...v}/>) :
+                    {...v} />) :
                 <h4>Not found</h4>
         }
 

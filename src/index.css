@@ -3,7 +3,7 @@ html { height: 100% }
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none ; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; } 
 body{ 
-  background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Afks9B0MdCOt-r-z-XYym6ShiD4mxvtM4A&usqp=CAU");
+  /* background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Afks9B0MdCOt-r-z-XYym6ShiD4mxvtM4A&usqp=CAU"); */
 }
 
 h2{text-align: center; color:white; font-style: white;}

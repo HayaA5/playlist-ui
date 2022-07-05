@@ -1,24 +1,14 @@
-import React, { useEffect, useContext } from 'react';
-import { useParams } from "react-router-dom";
-import Search from './Search'
+import React, { useContext } from 'react';
 import { SongContext } from '../Context/SongContext';
 
-
-
-
 function Song(props) {
+    debugger;
 
-    const { video_id, title } = props;
-    // const [song, setSong] = useContext(SongContext)
-    // const addToPlaylist = (e) => {
-    //     debugger;
-    //     setSong(
-    //         [...song, { id: { video_id } }])
-    //     debugger;
-    // }
-
-
-
+    const { id, title } = props;
+    const { song, setSong } = useContext(SongContext)
+    function preventAddSong(array) {
+        return array
+    }
     return (
         <div className="song">
             <div>Title: {title}</div>
@@ -27,19 +17,18 @@ function Song(props) {
                 <iframe
                     width="853"
                     height="480"
-                    src={`https://www.youtube.com/embed/${video_id}`}
+                    src={`https://www.youtube.com/embed/${id}`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title="Embedded youtube"
                 />
             </div>
-            <button className='btn-playlist' onClick={(e) => { }} >Add to playlist</button>
-            {/* addToPlaylist(e) */}
-
-
+            {props.onRemove && <button onClick={() => props.onRemove(props)}>Remove</button>}
+            {props.onAdd && <button onClick={() => props.onAdd(props)}>Add</button>}
         </div>
     )
 }
 
 export default Song
+

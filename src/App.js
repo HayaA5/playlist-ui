@@ -1,22 +1,18 @@
 import './App.css';
 import { useState } from 'react'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './Components/Header';
 import Login from './Components/Login';
 import Search from './Components/Search';
 import Playlist from './Components/Playlist';
-import { UserContext } from './Context/UserContext';
-import { Navigate } from 'react-router-dom';
 import Song from './Components/Song';
 import { SongContext } from './Context/SongContext';
+import { UserContext } from './Context/UserContext';
 
 
 export default function App() {
   const [user, setUser] = useState()
-  const [song, setSong] = useState()
-
-
-  //debugger;
+  const [song, setSong] = useState([])
   return (
     <div>
       <SongContext.Provider value={{ song, setSong }} >
@@ -48,16 +44,3 @@ export default function App() {
     </div>
   );
 }
-
-{/* {!user ? <div>en user</div> : <div>yesh user</div>}
-        {!user && <div>en user</div>}
-        {!user || <div>yesh user</div>} */}
-
-
-        // if (user) {
-          //   return (
-          //     <div>
-          //
-          //     </div>
-          //   )
-          // }

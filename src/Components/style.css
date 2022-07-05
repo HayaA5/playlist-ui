@@ -130,3 +130,18 @@ input[type="submit"]:active {
 .song{
   color:red;
 }
+.res{
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: max-content;
+  /* height: auto; */
+  
+  width: 300px;
+
+  border: #282c34 groove 4px;
+  border-radius: 24px;
+
+  
+  text-align: center;
+}

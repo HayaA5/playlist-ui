@@ -26,7 +26,7 @@ function Search() {
     function getSongs(value) {
         fetch(`https://simple-youtube-search.p.rapidapi.com/search?query=${value}`, options)
             .then(response => response.json())
-            .then(response => setList(response.results))
+            .then(response => {setList(response.results); console.log(response.results);})
 
             .catch(err => console.error(err));
 

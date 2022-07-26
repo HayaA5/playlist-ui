@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from './Components/Header';
 import Login from './Components/Login';
+import Login2 from './Components/Login2';
 import Search from './Components/Search';
 import Playlist from './Components/Playlist';
 import Song from './Components/Song';
@@ -33,7 +34,8 @@ export default function App() {
                 <Route path="/Playlist/:id" element={<Song />} />
               </>) : (
               <>
-                <Route path="Login" element={<Login />} />
+              <Route path="Login" element={<Login2 />} />
+                {/* <Route path="Login" element={<Login />} /> */}
                 <Route path="/*" element={<Navigate to="/Login" />} />
               </>
             )

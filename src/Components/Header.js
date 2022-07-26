@@ -10,7 +10,8 @@ const Header = () => {
         <div className="header">
             <header>
                 <nav>
-                    <button className='button'><Link to="/"><h1>Login</h1> </Link></button>
+                    {/* Login2 changes */}
+                    {/* <button className='button'><Link to="/"><h1>Login</h1> </Link></button> */}
                     {user && (<>
                         {/* <Search /> */}
 

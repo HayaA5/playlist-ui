@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import './Login2Ter.css'
+// import './Login2Ter.css'
 
 function Login2() {
     const loginRef=useRef();
